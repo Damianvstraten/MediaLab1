@@ -122,7 +122,7 @@ Share page
 
 .onoffswitch {
     position: relative; width: 59px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none; user-select: none;
 }
 .onoffswitch-checkbox {
     display: none;
