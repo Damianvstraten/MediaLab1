@@ -10,12 +10,34 @@ footer {
     display: flex;
 }
 
-footer div {
+
+footer .filter-mode {
     flex: 1;
     text-align: center;
     vertical-align: middle;
     line-height: 50px;
     font-size: 16px;
+}
+
+footer .main-footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+footer .main-footer li {
+    flex: 1;
+}
+
+footer .main-footer li img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.3;
+}
+
+.image-upload > input
+{
+    display: none;
 }
 
 a {
@@ -73,21 +95,27 @@ nav ul {
     width: 100%;
 }
 
-
-
 /*
 Share page
  */
 
 .comment {
-     border-bottom: solid gainsboro 1px;
+    border-bottom: solid gainsboro 1px;
+    display: flex;
+    flex-direction: row;
+}
+
+.comment img {
+    flex: 1;
 }
 
 .comment input {
     border: none;
+    width: 100%;
 }
 
 .comment form {
+    flex: 5;
     vertical-align: top;
     padding-top: 20px;
     padding-left: 10px;

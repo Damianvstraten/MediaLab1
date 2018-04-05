@@ -4,7 +4,7 @@
 
 <nav>
     <ul>
-        <li style="padding-left: 20px"><a href="index.html"><img src="images/left-arrow.png" style="height: 20px"></a> <span style="padding-left: 10px; vertical-align: top">Share to </span></li>
+        <li style="padding-left: 20px"><a href="filter.php"><img src="images/left-arrow.png" style="height: 20px"></a> <span style="padding-left: 10px; vertical-align: top">Share to </span></li>
         <li style="text-align: right; padding-right: 20px"><a href="#">Share</a></li>
     </ul>
 </nav>

@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-    <link type="text/css" href="style/style.css" rel="stylesheet"></head>
-<body>
+<?php
+    include "layout/header.php"
+?>
+
 <nav>
     <ul>
-        <li style="padding-left: 20px"><img src="images/left-arrow.png  " style="height: 20px"></li>
+        <li style="padding-left: 20px"><a href="index.html"><img src="images/left-arrow.png "style="height: 20px"></a></li>
         <li style="text-align: center"><img src="images/sun.png" style="height: 20px"></li>
         <li style="text-align: right; padding-right: 20px"><a href="share.html">Next</a></li>
     </ul>
@@ -45,15 +42,14 @@
 
 
 <footer>
-    <div style="border-bottom: 2px solid black">
+    <div class="filter-mode" style="border-bottom: 2px solid black">
         <a style="color: black" href="#">Filter</a>
     </div>
-    <div>
+    <div class="filter-mode">
         <a style=" color: #999" href="#">Edit</a>
     </div>
 </footer>
-<script type="application/javascript" src="js/main.js"></script>
-<script>
-</script>
-</body>
-</html>
+
+<?php
+    include "layout/footer.php";
+?>
