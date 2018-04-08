@@ -28,9 +28,6 @@
 
     $directory = "uploads/";
     $scanned_directory = array_diff(scandir($directory), array('..', '.'));
-    foreach($scanned_directory as $value){
-        echo "$value <br>";
-    }
 ?>
 
 <nav>
@@ -48,11 +45,13 @@
             <div class="grid-container">
                 <?php foreach($scanned_directory as $value) : ?>
                     <div class="grid-item">
-                        <img src="uploads/<?= $value ?>" width="50" height="50">
-                        <input type="text" placeholder="Write a caption..">
+                        <div style="display:block">
+                            <img src="uploads/<?= $value ?>" >
+                            <input type="text" placeholder="Write a caption..">
+                        </div>
                     </div>
                 <?php endforeach; ?>
-             </div>
+            </div>
         </form>
     </div>
     <form action="mailTemplate.php" method="POST">
