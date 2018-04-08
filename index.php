@@ -1,43 +1,6 @@
 <?php
  include "layout/header.php";
 
-function reArrayFiles(&$file_post) {
-
-    $file_ary = array();
-    $file_count = count($file_post['name']);
-    $file_keys = array_keys($file_post);
-
-    for ($i=0; $i<$file_count; $i++) {
-        foreach ($file_keys as $key) {
-            $file_ary[$i][$key] = $file_post[$key][$i];
-        }
-    }
-
-    return $file_ary;
-}
-
-
-if(isset($_POST["submit"])) {
-    $target_dir = "uploads/";
-
-    if (!file_exists($target_dir)) {
-        mkdir('uploads/', 0777, true);
-    }
-
-    if ($_FILES['images']) {
-        $file_ary = reArrayFiles($_FILES['images']);
-
-        foreach ($file_ary as $file) {
-            echo $target_file = $target_dir . basename($file['name']);
-
-            if (move_uploaded_file($file['tmp_name'], $target_file)) {
-                echo "The file " . basename($file['name']) . " has been uploaded.";
-            } else {
-                echo "Sorry, there was an error uploading your file.";
-            }
-        }
-    }
-}
 ?>
 <nav>
     <ul>
@@ -52,7 +15,7 @@ if(isset($_POST["submit"])) {
         <li><img src="images/house-black-silhouette-without-door.png"></li>
         <li><img src="images/search.png"></li>
         <li>
-            <form method="POST" enctype="multipart/form-data" name="image-form">
+            <form method="POST" enctype="multipart/form-data" name="image-form" action="share.php">
                 <div class="image-upload">
                     <label for="file-input">
                         <img src="images/plus-symbol-in-a-rounded-black-square.png">
