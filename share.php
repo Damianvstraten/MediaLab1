@@ -1,5 +1,36 @@
 <?php
     include "layout/header.php";
+
+    function reArrayFiles(&$file_post) {
+
+        $file_ary = array();
+        $file_count = count($file_post['name']);
+        $file_keys = array_keys($file_post);
+    
+        for ($i=0; $i<$file_count; $i++) {
+            foreach ($file_keys as $key) {
+                $file_ary[$i][$key] = $file_post[$key][$i];
+            }
+        }
+    
+        return $file_ary;
+    }
+    
+    
+    if(isset($_POST["submit"])) {
+        $target_dir = "uploads/";
+    
+        if (!file_exists($target_dir)) {
+            mkdir('uploads/', 0777, true);
+        }
+    }
+    
+
+    $directory = "uploads/";
+    $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+    foreach($scanned_directory as $value){
+        echo "$value <br>";
+    }
 ?>
 
 <nav>
@@ -11,9 +42,17 @@
 
 <main>
     <div class="comment" style="padding: 10px">
-        <img src="images/test-image.jpeg" width="50" height="50">
-        <form style="display: inline-block">
-            <input type="text" placeholder="Write a caption..">
+        <form>
+            <!-- <img src="images/test-image.jpeg" width="50" height="50">
+            <input type="text" placeholder="Write a caption.."> -->
+            <div class="grid-container">
+                <?php foreach($scanned_directory as $value) : ?>
+                    <div class="grid-item">
+                        <img src="uploads/<?= $value ?>" width="50" height="50">
+                        <input type="text" placeholder="Write a caption..">
+                    </div>
+                <?php endforeach; ?>
+             </div>
         </form>
     </div>
     <form action="mailTemplate.php" method="POST">
