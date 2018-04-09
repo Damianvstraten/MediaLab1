@@ -4,9 +4,9 @@
 
 <nav>
     <ul>
-        <li style="padding-left: 20px"><a href="index.html"><img src="images/left-arrow.png "style="height: 20px"></a></li>
+        <li style="padding-left: 20px"><a href="index.php"><img src="images/left-arrow.png "style="height: 20px"></a></li>
         <li style="text-align: center"><img src="images/sun.png" style="height: 20px"></li>
-        <li style="text-align: right; padding-right: 20px"><a href="share.html">Next</a></li>
+        <li style="text-align: right; padding-right: 20px"><a href="share.php">Next</a></li>
     </ul>
 </nav>
 
