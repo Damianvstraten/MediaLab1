@@ -105,13 +105,14 @@ nav ul {
 .filter {
     flex: 1;
     margin-right: 10px;
-    -webkit-box-shadow: 12px 18px 51px -7px rgba(0,0,0,0.44);
-    -moz-box-shadow: 12px 18px 51px -7px rgba(0,0,0,0.44);
-    box-shadow: 12px 18px 51px -7px rgba(0,0,0,0.44)
 }
 
 .filter img {
+    margin-top: 5px;
     width: 100%;
+    -webkit-box-shadow: 12px 18px 51px -7px rgba(0,0,0,0.44);
+    -moz-box-shadow: 12px 18px 51px -7px rgba(0,0,0,0.44);
+    box-shadow: 12px 18px 51px -7px rgba(0,0,0,0.44)
 }
 
 /*

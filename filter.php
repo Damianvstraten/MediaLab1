@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <div class="filters">
-        <div class="filter" id="grey_filter">
+        <div class="filter" id="grey_filter" style="margin-left: 10px">
             <span>Grey</span>
             <img src="<?= $firstimage ?>" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">
         </div>
