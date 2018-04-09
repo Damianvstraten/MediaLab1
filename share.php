@@ -17,11 +17,21 @@
     }
     
     
-    if(isset($_POST["submit"])) {
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $target_dir = "uploads/";
     
         if (!file_exists($target_dir)) {
             mkdir('uploads/', 0777, true);
+        }
+
+        if ($_FILES['images']) {
+                $file_ary = reArrayFiles($_FILES['images']);
+            
+            foreach ($file_ary as $file) {
+                $target_file = $target_dir . basename($file['name']);
+                move_uploaded_file($file['tmp_name'], $target_file);
+            }
+                
         }
     }
     
@@ -117,6 +127,18 @@
 
     <span style="margin:10px 0 0 15px; display: block; font-size: 14px; color: #999999">Advanced settings</span>
 </main>
+
+<script>
+    let checkbox = document.getElementById("myonoffswitch4");
+
+    checkbox.addEventListener("click", () => {
+        if(checkbox.checked == true){
+            console.log("this is true");
+        }else{
+            console.log("this is false");
+        }
+    })
+</script>
 
 <?php
     include "layout/footer.php";
