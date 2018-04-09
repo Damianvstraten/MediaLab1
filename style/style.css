@@ -232,3 +232,20 @@ Share page
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px;
 }
+
+/*
+* Contact list styling
+*/
+.contact-list {
+    display: none;
+    width: inherit;
+
+}
+
+.contact-name{
+    flex: 5;
+}
+
+.contact-checkbox {
+    margin-right: 2em;
+}
