@@ -20,7 +20,7 @@
             <div class="grid-container">
                 <?php foreach($scanned_directory as $value) : ?>
                     <div class="grid-item">
-                        <div style="display:block" id="caption_image">
+                        <div style="display:block" class="caption_image">
                             <img src="uploads/<?= $value ?>">
                         </div>
                     </div>
@@ -154,8 +154,13 @@
         if (parts.length == 2) return parts.pop().split(";").shift();
     }
 
-    var caption_image = document.getElementById("caption_image").getElementsByTagName('img')[0];
-    caption_image.classList.add(getCookie("className"));
+    // var caption_image = document.getElementByClassName("caption_image").getElementsByTagName('img')[0];
+    // caption_image.classList.add(getCookie("className"));
+    console.log(getCookie("className"));
+    let caption_image = document.querySelectorAll(".caption_image img");
+    for(let i = 0; i < caption_image.length; i++){
+        caption_image[i].classList.add(getCookie("className"));
+    }
 </script>
 
 <?php
