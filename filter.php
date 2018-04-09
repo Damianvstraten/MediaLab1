@@ -1,5 +1,43 @@
 <?php
-    include "layout/header.php"
+    include "layout/header.php";
+
+function reArrayFiles(&$file_post) {
+
+    $file_ary = array();
+    $file_count = count($file_post['name']);
+    $file_keys = array_keys($file_post);
+
+    for ($i=0; $i<$file_count; $i++) {
+        foreach ($file_keys as $key) {
+            $file_ary[$i][$key] = $file_post[$key][$i];
+        }
+    }
+
+    return $file_ary;
+}
+
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $target_dir = "uploads/";
+
+    if (!file_exists($target_dir)) {
+        mkdir('uploads/', 0777, true);
+    }
+
+    if ($_FILES['images']) {
+        $file_ary = reArrayFiles($_FILES['images']);
+
+        foreach ($file_ary as $file) {
+            $target_file = $target_dir . basename($file['name']);
+            move_uploaded_file($file['tmp_name'], $target_file);
+        }
+
+    }
+}
+
+    $directory = "uploads/";
+    $scanned_directory = array_diff(scandir($directory), array('..', '.'));
+    $firstimage = "uploads/" . reset($scanned_directory);
 ?>
 
 <nav>
@@ -13,29 +51,29 @@
 <main>
     <div class="content">
         <div class="main-image">
-            <img src="images/test-image.jpeg">
+            <img src="<?= $firstimage ?>">
         </div>
     </div>
 
     <div class="filters">
         <div class="filter">
             <span>Grey</span>
-            <img src="images/test-image.jpeg" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">
+            <img src="<?= $firstimage ?>" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">
         </div>
 
         <div class="filter">
             <span>Blur</span>
-            <img src="images/test-image.jpeg" style="filter: blur(2px)">
+            <img src="<?= $firstimage ?>" style="filter: blur(2px)">
         </div>
 
         <div class="filter">
             <span>Dark</span>
-            <img src="images/test-image.jpeg" style="filter: brightness(50%)">
+            <img src="<?= $firstimage ?>" style="filter: brightness(50%)">
         </div>
 
         <div class="filter">
             <span>Light</span>
-            <img src="images/test-image.jpeg" style="filter: contrast(40%)">
+            <img src="<?= $firstimage ?>" style="filter: contrast(40%)">
         </div>
     </div>
 </main>
