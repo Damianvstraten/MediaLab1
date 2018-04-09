@@ -15,13 +15,13 @@
 <main>
     <div class="comment" style="padding: 10px">
         <form>
-            <!-- <img src="images/test-image.jpeg" width="50" height="50">
+           <!-- <!-- <img src="images/test-image.jpeg" width="50" height="50">
             <input type="text" placeholder="Write a caption.."> -->
             <div class="grid-container">
                 <?php foreach($scanned_directory as $value) : ?>
                     <div class="grid-item">
-                        <div style="display:block">
-                            <img src="uploads/<?= $value ?>" >
+                        <div style="display:block" id="caption_image">
+                            <img src="uploads/<?= $value ?>">
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -148,6 +148,14 @@
         })
     }
 
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+
+    var caption_image = document.getElementById("caption_image").getElementsByTagName('img')[0];
+    caption_image.classList.add(getCookie("className"));
 </script>
 
 <?php
