@@ -50,28 +50,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <main>
     <div class="content">
-        <div class="main-image">
+        <div class="main-image" id="main_image">
             <img src="<?= $firstimage ?>">
         </div>
     </div>
 
     <div class="filters">
-        <div class="filter">
+        <div class="filter" id="grey_filter">
             <span>Grey</span>
             <img src="<?= $firstimage ?>" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">
         </div>
 
-        <div class="filter">
+        <div class="filter" id="blur_filter">
             <span>Blur</span>
             <img src="<?= $firstimage ?>" style="filter: blur(2px)">
         </div>
 
-        <div class="filter">
+        <div class="filter" id="dark_filter">
             <span>Dark</span>
             <img src="<?= $firstimage ?>" style="filter: brightness(50%)">
         </div>
 
-        <div class="filter">
+        <div class="filter" id="light_filter">
             <span>Light</span>
             <img src="<?= $firstimage ?>" style="filter: contrast(40%)">
         </div>
@@ -87,6 +87,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a style=" color: #999" href="#">Edit</a>
     </div>
 </footer>
+
+<script>
+    var main_image = document.getElementById("main_image").getElementsByTagName('img')[0];
+    var allFilters = document.querySelectorAll('.filter');
+
+    for(var i = 0; i < allFilters.length; i++) {
+        allFilters[i].addEventListener('click', function () {
+            var className = this.id;
+
+            main_image.removeAttribute('class');
+            main_image.classList.add(className);
+        })
+    }
+</script>
 
 <?php
     include "layout/footer.php";

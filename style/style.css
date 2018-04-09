@@ -71,9 +71,28 @@ nav ul {
     height: 40px;
 }
 
-.main-image img{
+#main_image img{
     width: 100%;
     min-height: 360px;
+}
+
+/* Filters */
+
+.grey_filter {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.blur_filter {
+    filter: blur(2px);
+}
+
+.dark_filter {
+    filter: brightness(50%);
+}
+
+.light_filter {
+    filter: contrast(40%)
 }
 
 .filters {
