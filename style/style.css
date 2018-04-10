@@ -142,6 +142,7 @@ Share page
 
   .grid-item input{
     display: block;
+    margin: auto;
   }
 /* 
 .comment img {
@@ -248,4 +249,54 @@ Share page
 
 .contact-checkbox {
     margin-right: 2em;
+}
+
+/*
+*       Mail template
+*/
+
+.email-container{
+    border: 1px dashed black;
+    margin: 1em;
+}
+
+.grid-container2{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.grid-item2{
+    margin: 0.3em;
+}
+
+.grid-item2 img{
+    padding: 0.5em;
+    height: 100%;
+    width: 100%;
+}
+
+.images{
+    background-image: url(../images/1.jpg);
+    background-repeat: round;
+    background-size: cover;
+}
+
+.grid-container3{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+
+}
+
+#sender-pic{
+    width: 150px;
+    height: 150px;
+    padding-top: 2em;
+    border-radius: 50%;
+}
+
+.grid-item3 {
+    border: 1px solid black;
 }

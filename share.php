@@ -6,27 +6,27 @@
 ?>
 
 <nav>
+<form method="POST" action="mailTemplate.php">
     <ul>
         <li style="padding-left: 20px"><a href="filter.php"><img src="images/left-arrow.png" style="height: 20px"></a> <span style="padding-left: 10px; vertical-align: top">Share to </span></li>
-        <li style="text-align: right; padding-right: 20px"><a href="#">Share</a></li>
+        <li style="text-align: right; padding-right: 20px"><a href="#" id="share-button">Share</a></li> 
     </ul>
+</form>
 </nav>
 
 <main>
     <div class="comment" style="padding: 10px">
-        <form>
-           <!-- <!-- <img src="images/test-image.jpeg" width="50" height="50">
-            <input type="text" placeholder="Write a caption.."> -->
-            <div class="grid-container">
-                <?php foreach($scanned_directory as $value) : ?>
-                    <div class="grid-item">
-                        <div style="display:block" class="caption_image">
-                            <img src="uploads/<?= $value ?>">
-                        </div>
+        <!-- <!-- <img src="images/test-image.jpeg" width="50" height="50">
+        <input type="text" placeholder="Write a caption.."> -->
+        <div class="grid-container">
+            <?php foreach($scanned_directory as $value) : ?>
+                <div class="grid-item">
+                    <div style="display:block" class="caption_image">
+                        <img src="uploads/<?= $value ?>">
                     </div>
-                <?php endforeach; ?>
-            </div>
-        </form>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 
 
@@ -90,30 +90,30 @@
     </ul>
 
     <div>
-        <form>
+        <form action="mailTemplate.php" method="POST" id="submit-form">
             <ul>
                 <li>
                     <label class="contact-list">
-                        <span class="contact-name" for="Jan">opa Jan</span>
-                        <input type="checkbox" class="contact-checkbox" id="Jan">
+                        <span class="contact-name">opa Jan</span>
+                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="Jan">
                     </label>
                 </li>
                 <li>
                     <label class="contact-list">
-                        <span class="contact-name" for="Remko">opa Remko</span>
-                        <input type="checkbox" class="contact-checkbox" id="Remko">
+                        <span class="contact-name">opa Remko</span>
+                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="Remko">
                     </label>
                 </li>
                 <li>
                     <label class="contact-list">
-                        <span class="contact-name" for="Maaike">oma Maaike</span>
-                        <input type="checkbox" class="contact-checkbox" id="Maaike">
+                        <span class="contact-name">oma Maaike</span>
+                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="Maaike">
                     </label>
                 </li>
                 <li>
                     <label class="contact-list">
-                        <span class="contact-name" for="Willemijn">oma Willemijn</span>
-                        <input type="checkbox" class="contact-checkbox" id="Willemijn">
+                        <span class="contact-name">oma Willemijn</span>
+                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="Willemijn">
                     </label>
                 </li>
             </ul>
@@ -127,6 +127,10 @@
     let checkbox = document.getElementById("myonoffswitch4");
     let checks = document.querySelectorAll(".contact-checkbox");
     let contacts = document.querySelectorAll(".contact-list");
+    let sharebtn = document.getElementById("share-button");
+    let submitbtn = document.getElementById("submit-form");
+    let caption_image = document.querySelectorAll(".caption_image img");
+
 
     checkbox.addEventListener("click", () => {
         if(checkbox.checked == true){
@@ -143,7 +147,7 @@
     for(let i = 0; i < checks.length; i++){
         checks[i].addEventListener('change',() => {
             if(checks[i].checked == true){
-                console.log(checks[i].id);
+                console.log(checks[i].value);
             }
         })
     }
@@ -156,11 +160,18 @@
 
     // var caption_image = document.getElementByClassName("caption_image").getElementsByTagName('img')[0];
     // caption_image.classList.add(getCookie("className"));
-    console.log(getCookie("className"));
-    let caption_image = document.querySelectorAll(".caption_image img");
+
     for(let i = 0; i < caption_image.length; i++){
         caption_image[i].classList.add(getCookie("className"));
     }
+
+    sharebtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+
+        submitbtn.submit();
+    })
+
+
 </script>
 
 <?php
