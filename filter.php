@@ -1,5 +1,5 @@
 <?php
-    include "layout/header.php";
+    include "layout/header.html";
 
     function reArrayFiles(&$file_post) {
 
@@ -115,5 +115,5 @@
 </script>
 
 <?php
-    include "layout/footer.php";
+    include "layout/footer.html";
 ?>

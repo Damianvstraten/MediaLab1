@@ -1,5 +1,5 @@
 <?php
-    include "layout/header.php";
+    include "layout/header.html";
 
     $directory = "uploads/";
     $scanned_directory = array_diff(scandir($directory), array('..', '.'));
@@ -90,7 +90,7 @@
     </ul>
 
     <div>
-        <form action="mailTemplate.php" method="POST" id="submit-form">
+        <form action="sendMail.php" method="POST" id="submit-form" name="submit-form">
             <ul>
                 <li>
                     <label class="contact-list">
@@ -142,7 +142,7 @@
                 contacts[i].style.display="none";
             }
         }
-    })
+    });
 
     for(let i = 0; i < checks.length; i++){
         checks[i].addEventListener('change',() => {
@@ -153,8 +153,8 @@
     }
 
     function getCookie(name) {
-        var value = "; " + document.cookie;
-        var parts = value.split("; " + name + "=");
+        let value = "; " + document.cookie;
+        let parts = value.split("; " + name + "=");
         if (parts.length == 2) return parts.pop().split(";").shift();
     }
 
@@ -169,11 +169,12 @@
         e.preventDefault();
 
         submitbtn.submit();
+        document.cookie = "className" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     })
 
 
 </script>
 
 <?php
-    include "layout/footer.php";
+    include "layout/footer.html";
 ?>

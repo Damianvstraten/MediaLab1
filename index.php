@@ -1,5 +1,5 @@
 <?php
- include "layout/header.php";
+    include "layout/header.html";
 
 ?>
 <nav>
@@ -39,5 +39,5 @@
 </script>
 
 <?php
-    include "layout/footer.php";
+    include "layout/footer.html";
 ?>
