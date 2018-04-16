@@ -90,30 +90,30 @@
     </ul>
 
     <div>
-        <form action="sendMail.php" method="POST" id="submit-form" name="submit-form">
+        <form action="mailPdf.php" method="POST" id="submit-form" name="submit-form">
             <ul>
                 <li>
                     <label class="contact-list">
                         <span class="contact-name">opa Jan</span>
-                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="Jan">
+                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="opa Jan">
                     </label>
                 </li>
                 <li>
                     <label class="contact-list">
                         <span class="contact-name">opa Remko</span>
-                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="Remko">
+                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="opa Remko">
                     </label>
                 </li>
                 <li>
                     <label class="contact-list">
                         <span class="contact-name">oma Maaike</span>
-                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="Maaike">
+                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="oma Maaike">
                     </label>
                 </li>
                 <li>
                     <label class="contact-list">
                         <span class="contact-name">oma Willemijn</span>
-                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="Willemijn">
+                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="oma Willemijn">
                     </label>
                 </li>
             </ul>
@@ -148,10 +148,15 @@
         checks[i].addEventListener('change',() => {
             if(checks[i].checked == true){
                 console.log(checks[i].value);
+                console.log(checks.length);
+            }else{
+                console.log('removed ' + checks[i].value);
+                console.log(checks.length);
             }
         })
     }
 
+  
     function getCookie(name) {
         let value = "; " + document.cookie;
         let parts = value.split("; " + name + "=");
