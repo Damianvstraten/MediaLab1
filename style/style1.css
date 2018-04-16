@@ -1,0 +1,53 @@
+/*
+*       Mail template
+*/
+
+.email-container{
+    border: 1px dashed blue;
+    margin: 1em;
+}
+
+.grid-container2{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 60px;
+    text-align: center;
+}
+
+.grid-item2{
+    margin: 0.3em;
+}
+
+.grid-item2 img{
+    padding: 2em; 
+    height: 15em; 
+    width: 15em;
+}
+
+.images{
+    background-image: url('../images/1.jpg');
+    background-repeat: round;
+    background-size: cover;
+}
+
+.grid-container3{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+
+}
+
+
+#sender-pic{
+    width: 150px;
+    height: 150px;
+    padding-top: 2em;
+    border-radius: 50%;
+}
+
+.grid-item3 {
+  padding-left: 0.3em;
+  font-family: Comic Sans MS; 
+  border: 1px solid black;
+  text-align: center;
+}
