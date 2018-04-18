@@ -94,8 +94,8 @@
             <ul>
                 <li>
                     <label class="contact-list">
-                        <span class="contact-name">opa Jan</span>
-                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="opa Jan">
+                        <span class="contact-name">Nikki</span>
+                        <input type="checkbox" name="contact[]" class="contact-checkbox" value="Nikki">
                     </label>
                 </li>
                 <li>
