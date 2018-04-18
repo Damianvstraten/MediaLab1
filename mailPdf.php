@@ -33,7 +33,7 @@ foreach ($scanned_directory as $key=>$image) {
         $imageHeight = $tableHeight / (count($scanned_directory)/2);
         $imageWidth = $tableWidth / 2;
 
-        $pdf->Image("uploads/" . $image, $positionX, $positionY, $imageWidth, $imageHeight);
+        $pdf->Image($directory . $image, $positionX, $positionY, $imageWidth, $imageHeight);
 
     } else if(count($scanned_directory) == 2){
         $imageHeight = 95;
@@ -53,48 +53,52 @@ foreach ($scanned_directory as $key=>$image) {
 $pdf->Ln(15);
 $pdf->Cell($tableWidth, 71,'',1,200,'C');
 
-$pdf->Image("images/sender.jpg", 14, 208, 90, 65);
+$pdf->Image("images/team2.jpeg", 14, 208, 90, 65);
 
 // Text
 $pdf->Text(115, $tableHeight + 40,'Afzender:');
-$pdf->Text(115, $tableHeight + 60,'Damian');
+$pdf->Text(115, $tableHeight + 60,'Team 2');
 $pdf->Text(115, $tableHeight + 80,'Wijnhaven 107');
 $pdf->Text(115, $tableHeight + 90,'7583 JK Rotterdam');
 
 $content = $pdf->Output('Pdf','S');
-$to = "sonnylo@hotmail.com";
+
+$to = "0888150@hr.nl";
 $subject = "Gedeelde instagram post";
 
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
   //Server settings
-  $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+  $mail->SMTPDebug = 2;                                 // Enable verbose debug output
   $mail->isSMTP();                                      // Set mailer to use SMTP
   $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
   $mail->SMTPAuth = true;                               // Enable SMTP authentication
-  $mail->Username = 'solokh89@gmail.com';                 // SMTP username
-  $mail->Password = 'gmail_password';                           // SMTP password
+  $mail->Username='spammmedms@gmail.com';                 // SMTP username
+  $mail->Password='Spammeatboi';                           // SMTP password
   $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
   $mail->Port = 587;      
 
 //Recipients
-$mail->setFrom('sonny@example.com', 'Familie');
+$mail->setFrom('spammmedms@gmail.com', 'Familie');
 $mail->addAddress($to, 'Joe User');     // Add a recipient
 
-$members = array(
-    '0888150@hr.nl' => 'Sonny', 
-);
+// $members = array(
+//     '0888150@hr.nl' => 'Sonny', 
+//     "0879504@hr.nl" => 'Damian',
+//     '0880446@hr.nl' => 'Kenzo',
+//     '0891783@hr.nl' => 'Marian'
+// );
 
-foreach($members as $email => $name){
-    $mail->addCC($email, $name);
-}
+// foreach($members as $email => $name){
+//     $mail->addCC($email, $name);
+// }
 
 $mail->addStringAttachment($content, 'mail.pdf', 'base64', 'application/pdf');
 
 //Content
 $mail->isHTML(true);                                  // Set email format to HTML
-$mail->Subject = 'Here is final test preparation';
+$mail->Subject = 'Beterschap Nikki';
 
-//function to remove the directory with images after the message has been sent
+// function to remove the directory with images after the message has been sent
 function rrmdir($dir) { 
     if (is_dir($dir)) { 
       $objects = scandir($dir); 
@@ -116,14 +120,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $message .= $send.', ';
         }
     }
-    $message .= ". <br> Met vriendelijke groet, <br> Damian.";
+    $message .= ". <br> Met vriendelijke groet, <br> Team 2.";
     $mail->Body    = $message;
-    $mail->send();
+   if($mail->send()){
     echo "mail send";
-
+   }else{
+       echo "mail not send";
+   }
     //remove uploads directory with the contents
     rrmdir($directory);
-}else{
-    echo "You haven't selected any grandparents to send a message.";
 }
 
