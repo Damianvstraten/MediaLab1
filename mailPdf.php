@@ -63,7 +63,7 @@ $pdf->Text(115, $tableHeight + 90,'7583 JK Rotterdam');
 
 $content = $pdf->Output('Pdf','S');
 
-$to = "sonnylo@hotmail.com";
+$to = "0888150@hr.nl";
 $subject = "Gedeelde instagram post";
 
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
