@@ -20,8 +20,6 @@ $tableWidth = 190;
 $tableHeight = 180;
 $pdf->Cell($tableWidth, $tableHeight,'',1,200,'C');
 
-// echo __DIR__ . '<br>';
-
 // Images
 
 $directory = "uploads/";
@@ -64,22 +62,23 @@ $pdf->Text(115, $tableHeight + 80,'Wijnhaven 107');
 $pdf->Text(115, $tableHeight + 90,'7583 JK Rotterdam');
 
 $content = $pdf->Output('Pdf','S');
+
 $to = "sonnylo@hotmail.com";
 $subject = "Gedeelde instagram post";
 
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
   //Server settings
-//   $mail->SMTPDebug = 0;                                 // Enable verbose debug output
-//   $mail->isSMTP();                                      // Set mailer to use SMTP
-//   $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-//   $mail->SMTPAuth = true;                               // Enable SMTP authentication
-//   $mail->Username='solokh89@gmail.com';                 // SMTP username
-//   $mail->Password='marson2803';                           // SMTP password
-//   $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-//   $mail->Port = 587;      
+  $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+  $mail->isSMTP();                                      // Set mailer to use SMTP
+  $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+  $mail->SMTPAuth = true;                               // Enable SMTP authentication
+  $mail->Username='spammmedms@gmail.com';                 // SMTP username
+  $mail->Password='Spammeatboi';                           // SMTP password
+  $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+  $mail->Port = 587;      
 
 //Recipients
-$mail->setFrom('sonnylo@hr.hotmail.com', 'Familie');
+$mail->setFrom('spammmedms@gmail.com', 'Familie');
 $mail->addAddress($to, 'Joe User');     // Add a recipient
 
 // $members = array(
